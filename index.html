@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bionic Reading Converter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./BionicReadingConverter/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="./BionicReadingConverter/converter.js"></script>
+    <script src="./BionicReadingConverter/reset.js"></script>
+    <script src="./BionicReadingConverter/uploadfile.js"></script>
+    <script src="./BionicReadingConverter/fullScreen.js"></script>
+    <script src="./BionicReadingConverter/export.js"></script>
+
+    <script src="https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--start model start-->
+    <div class="modal" id="modal-js-example">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head navbar-end">
+                <!--<p class="modal-card-title">Modal title</p>-->
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="" id="outputModel">
+
+                </div>
+            </section>
+            <!--
+            <footer class="modal-card-foot">
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+            </footer>-->
+        </div>
+    </div>
+    <!--end model-->
+    <div class="Container">
+
+        <!--this is first columns-->
+        <div class="columns">
+            <div class="column">
+                <div>Bionic Reading Converter</div>
+            </div>
+            <div class="column">
+                <div class="navbar-end">
+                    <div class="buttons">
+                        <button class="button  is-rounded">
+                            <span class="icon">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                            </span>
+                            <span>Share</span>
+                        </button>
+                        <button class="button  is-rounded">
+                            <span class="icon">
+                                <i class="fa fa-heart"></i>
+                            </span>
+                            <span>Add to Favs</span>
+                        </button>
+                        <button class="button  is-rounded">
+                            <span class="icon">
+                                <i class="fa fa-bug" aria-hidden="true"></i>
+                            </span>
+                            <span>Report Bug</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--this is second columns-->
+        <div class="columns">
+            <div class="column  has-text-centered " id="uploadFile">
+                <div class=" " style="margin-left: 35em;">
+                    <label class="file-label">
+                        <input class="file-input" id="pdfFile" type="file" name="resume"
+                            oninput="convertPDFToText(this.value)">
+                        <span class="">
+                            <span class="file-icon" style="margin-left: 90px;">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Import text from PDF(max 5MB)
+                            </span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--this is third columns-->
+        <div class="columns">
+            <div class="column">
+                <div class="control">
+                    <textarea class="textarea is-focused" placeholder="input" id="inputDiv"></textarea>
+                </div>
+                <div id="dropdownBtn">
+                    <div class="dropdown is-active">
+                        <div class="dropdown-trigger">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                <span>Dropdown button</span>
+                                <span class="icon is-small">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">
+                                    very Low - 40%
+                                </a>
+                                <a class="dropdown-item">
+                                    Low - 45%
+                                </a>
+                                <a href="#" class="dropdown-item is-active">
+                                    Medium - 50%
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    High - 55%
+                                </a>
+                                <hr class="dropdown-divider">
+                                <a href="#" class="dropdown-item">
+                                    very High - 60%
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                </div>
+            </div>
+            <div id="ConvertBtn">
+                <button class="button is-rounded" onclick="showtext()">
+                    <span>Convert</span>
+                    <span class="icon">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+            <br />
+            <div id="resetbtn">
+                <button class="button is-rounded" onclick="ClearFields()" style="margin-left: -32px;">
+                    <span class="icon">
+                        <i class="fa fa-chevron-" aria-hidden="true"></i>
+                    </span>
+                    <span style="margin-left: -1px;">reset</span>
+                    <span class="icon">
+                        <i class="fa fa-chevron-" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+
+
+            <div class="column">
+                <div class="control">
+                    <div class="" id="outputDiv"></div>
+                </div>
+                <div class="navbar-end" id="ExportBtnDiv">
+                    <p class="buttons">
+                        <button class="button is-rounded " onclick="showbutton()">
+
+                            <span>Export</span>
+                            <span class="icon">
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                        <button class="button  is-rounded  js-modal-trigger" data-target="modal-js-example">
+                            <span class="icon">
+                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                            </span>
+                            <span>Full Screen</span>
+                        </button>
+                    </p>
+                </div>
+                <div class="box" style="display: none;" id="showbutton">
+                    <p class="buttons">
+                        <button class="button is-medium">
+                            <span class="icon">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </span>
+                            <span>Download PDF(multi-page)</span>
+                        </button>
+                        <button class="button is-medium">
+                            <span class="icon">
+                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            </span>
+                            <span>Download Image</span>
+                        </button>
+                    </p>
+                    <p class="buttons">
+                        <button class="button is-medium">
+                            <span class="icon">
+                                <i class="fa fa-files-o" aria-hidden="true"></i>
+                            </span>
+                            <span>Copy Image to Clipbord</span>
+                        </button>
+                        <button class="button is-medium">
+                            <span class="icon">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                            </span>
+                            <span>Copy Html</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

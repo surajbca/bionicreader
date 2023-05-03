@@ -1,0 +1,46 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300);
+
+html,
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.chat-picture img {
+    max-width: 150px;
+}
+.Container{
+    margin-top: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#uploadFile{
+    height: 5em;
+    border: dotted hsl(258, 30%, 49%);
+    border-radius: 10px;
+}
+
+#inputDiv{
+    height: 25em;
+}
+
+#outputDiv{
+    height: 25em;
+    border: solid #9aade7;
+    border-radius:  5px;
+}
+#ConvertBtn{
+    margin-top: 8em;
+}
+#ExportBtnDiv{
+    margin-top: 12px;
+}
+#dropdownBtn{
+    margin-top: 12px;
+}
+
+#resetbtn{
+    margin-top: 189px;
+        margin-left: -80px;
+       
+}
