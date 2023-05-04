@@ -16,7 +16,7 @@ body {
 
 #uploadFile{
     height: 5em;
-    border: dotted hsl(258, 30%, 49%);
+    border: dotted #a8b4e9;
     border-radius: 10px;
 }
 
@@ -24,9 +24,9 @@ body {
     height: 25em;
 }
 
-#outputDiv{
+.outputDiv{
     height: 25em;
-    border: solid #9aade7;
+    border: solid #a8b4e9;
     border-radius:  5px;
 }
 #ConvertBtn{

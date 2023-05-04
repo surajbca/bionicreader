@@ -15,11 +15,18 @@
     <script src="./BionicReadingConverter/uploadfile.js"></script>
     <script src="./BionicReadingConverter/fullScreen.js"></script>
     <script src="./BionicReadingConverter/export.js"></script>
+    <script src="./BionicReadingConverter/Highlighted.js"></script>
 
     <script src="https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
 </head>
 
 <body>
@@ -99,20 +106,22 @@
         <!--this is third columns-->
         <div class="columns">
             <div class="column">
+
                 <div class="control">
                     <textarea class="textarea is-focused" placeholder="input" id="inputDiv"></textarea>
                 </div>
                 <div id="dropdownBtn">
                     <div class="dropdown is-active">
                         <div class="dropdown-trigger">
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
+                                onclick="highlighted()">
                                 <span>Dropdown button</span>
                                 <span class="icon is-small">
                                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                                 </span>
                             </button>
                         </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-menu" role="menu" style="display: none;" id="fontId">
                             <div class="dropdown-content">
                                 <a href="#" class="dropdown-item">
                                     very Low - 40%
@@ -134,13 +143,17 @@
                         </div>
                     </div>
 
-                    <label class="checkbox">
+
+
+                    <label class="checkbox mt-2">
                         <input type="checkbox">
-                        Remember me
+                        High contrast
                     </label>
 
                 </div>
+
             </div>
+
             <div id="ConvertBtn">
                 <button class="button is-rounded" onclick="showtext()">
                     <span>Convert</span>
@@ -164,7 +177,8 @@
 
 
             <div class="column">
-                <div class="control">
+                <div class="control outputDiv">
+
                     <div class="" id="outputDiv"></div>
                 </div>
                 <div class="navbar-end" id="ExportBtnDiv">
@@ -186,13 +200,13 @@
                 </div>
                 <div class="box" style="display: none;" id="showbutton">
                     <p class="buttons">
-                        <button class="button is-medium">
+                        <button class="button is-medium" id="btnPrint">
                             <span class="icon">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             </span>
                             <span>Download PDF(multi-page)</span>
                         </button>
-                        <button class="button is-medium">
+                        <button class="button is-medium" onclick="downloadImage()">
                             <span class="icon">
                                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                             </span>
@@ -200,7 +214,7 @@
                         </button>
                     </p>
                     <p class="buttons">
-                        <button class="button is-medium">
+                        <button class="button is-medium" onclick="copyText()">
                             <span class="icon">
                                 <i class="fa fa-files-o" aria-hidden="true"></i>
                             </span>
@@ -217,6 +231,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
