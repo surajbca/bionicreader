@@ -1,18 +1,8 @@
-/* start model function*/
+/*start model function*/
 document.addEventListener("DOMContentLoaded", () => {
   // Functions to open and close a modal
   function openModal($el) {
     $el.classList.add("is-active");
-
-    var text = document.getElementById("outputDiv");
-    var showarea = document.getElementById("outputModel");
-    showarea.innerHTML = text.value;
-    /*var copyText = document.getElementById("myInput");
-    copyText.style.background = "";
-    copyText.style.color = "";*/
-
-    //copyText.value = outputDiv.innerHTML;
-    //alert(svgImg.innerHTML);
   }
 
   function closeModal($el) {
@@ -26,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Add a click event on buttons to open a specific modal
-  (document.querySelectorAll(".js-modal-trigger") || []).forEach(($trigger) => {
+  (document.querySelectorAll(".js-modal-Favs") || []).forEach(($trigger) => {
     const modal = $trigger.dataset.target;
     const $target = document.getElementById(modal);
 
@@ -58,33 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-function updateInput() {
-  //alert(innerHTML);
-
-  document.getElementById("outputDiv").value =
-    document.getElementById("outputModel").innerHTML;
-}
 /*end model function*/
-
-/*function copyText() {
-  const buttonDiv = document.getElementById("buttonDiv");
-  buttonDiv.style.display = "none";
-
-  var copyText = document.getElementById("myInput");
-  copyText.style.background = "#08BDBA";
-  copyText.style.color = "white";
-
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
-}
-
-function updateInput(innerHTML) {
-  alert(innerHTML);
-
-  document.getElementById("myInput").value =
-    document.getElementById("svgCodeCopy").innerHTML;
-}*/

@@ -16,6 +16,9 @@
     <script src="./BionicReadingConverter/fullScreen.js"></script>
     <script src="./BionicReadingConverter/export.js"></script>
     <script src="./BionicReadingConverter/Highlighted.js"></script>
+    <script src="./BionicReadingConverter/share.js"></script>
+    <script src="./BionicReadingConverter/addToFavs.js"></script>
+    <script src="./BionicReadingConverter/reportBug.js"></script>
 
     <script src="https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
@@ -30,25 +33,151 @@
 </head>
 
 <body>
-    <!--start model start-->
+    <!--start model  (this is for fullscreen)-->
     <div class="modal" id="modal-js-example">
         <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head navbar-end">
-                <!--<p class="modal-card-title">Modal title</p>-->
-                <button class="delete" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <div class="" id="outputModel">
+        <div class="modal-content">
+            <div class="box">
+                <p id="outputModel"></p>
 
-                </div>
-            </section>
-            <!--
-            <footer class="modal-card-foot">
-                <button class="button is-success">Save changes</button>
-                <button class="button">Cancel</button>
-            </footer>-->
+            </div>
         </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!--end model-->
+
+    <!--start model (this is for share button)-->
+    <div id="modal-js-Share" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <div class="has-background-grey-lighter is-outlined pt-2">
+                    <p class="buttons " style="margin-left: 85px;">
+                        <button class="button is-large is-outlined">
+                            <span class="icon is-medium">
+                                <i class="fa fa-cog" aria-hidden="true"></i>
+                            </span>
+                            <span>Share Tool</span>
+                        </button>
+                        <button class="button is-large is-outlined">
+                            <span class="icon is-medium">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </span>
+                            <span>Share 10015</span>
+                        </button>
+
+                    </p>
+                </div>
+                <div>
+                    <div class="has-text-centered pt-3">
+                        <p>You are currently sharing;</p>
+                        <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 25px;">Bionic
+                            Reading Converter</h1>
+                    </div>
+                    <div class="has-text-centered">
+                        <span class="icon is-large">
+                            <span class="fa-stack fa-lg" style="font-size: 40px;">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+
+                            </span>
+                        </span>
+                    </div>
+                    <div class="has-text-centered">
+                        <span class="icon is-large">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </span>
+                        <span class="icon is-large">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </span>
+                        <span class="icon is-large">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </span>
+                        <span class="icon is-large">
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                        </span>
+                        <span class="icon is-large">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!--end model-->
+
+    <!--start model (this is for add to favs)-->
+    <div id="modal-js-Favs" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <div>
+                    <p class="is-size-3" style="font-family: Arial, Helvetica, sans-serif;">Sign In / Register</p>
+                    <p class="is-size-4">You need to sign in or register to use this feature.</p>
+                </div>
+                <div>
+                    <p class="buttons mt-3" style="margin-left: 243px;">
+                        <button class="button is-large is-rounded">
+                            <span class="icon is-medium">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </span>
+                            <span>Register</span>
+                        </button>
+                        <button class="button is-large is-rounded">
+                            <span class="icon is-medium">
+                                <i class="fa fa-power-off" aria-hidden="true"></i>
+                            </span>
+                            <span>Sign in</span>
+                        </button>
+
+                    </p>
+                </div>
+
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!--end model-->
+
+    <!--start model (this is for report bug)-->
+    <div id="modal-js-report" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <div>
+                    <p class="is-size-3" style="font-family: Arial, Helvetica, sans-serif;">Sign In / Register</p>
+                    <p class="is-size-4">You need to sign in or register to use this feature.</p>
+                </div>
+                <div>
+                    <p class="buttons mt-3" style="margin-left: 243px;">
+                        <button class="button is-large is-rounded">
+                            <span class="icon is-medium">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </span>
+                            <span>Register</span>
+                        </button>
+                        <button class="button is-large is-rounded">
+                            <span class="icon is-medium">
+                                <i class="fa fa-power-off" aria-hidden="true"></i>
+                            </span>
+                            <span>Sign in</span>
+                        </button>
+
+                    </p>
+                </div>
+                <!-- Your content -->
+            </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
     <!--end model-->
     <div class="Container">
@@ -56,24 +185,24 @@
         <!--this is first columns-->
         <div class="columns">
             <div class="column">
-                <div>Bionic Reading Converter</div>
+                <div style="font-family: Arial, Helvetica, sans-serif;">Bionic Reading Converter</div>
             </div>
             <div class="column">
                 <div class="navbar-end">
                     <div class="buttons">
-                        <button class="button  is-rounded">
+                        <button class="button  is-rounded js-modal-Share" data-target="modal-js-Share">
                             <span class="icon">
                                 <i class="fa fa-share-alt" aria-hidden="true"></i>
                             </span>
                             <span>Share</span>
                         </button>
-                        <button class="button  is-rounded">
+                        <button class="button  is-rounded js-modal-Favs" data-target="modal-js-Favs">
                             <span class="icon">
                                 <i class="fa fa-heart"></i>
                             </span>
                             <span>Add to Favs</span>
                         </button>
-                        <button class="button  is-rounded">
+                        <button class="button  is-rounded js-modal-report" data-target="modal-js-report">
                             <span class="icon">
                                 <i class="fa fa-bug" aria-hidden="true"></i>
                             </span>
@@ -115,7 +244,7 @@
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
                                 onclick="highlighted()">
-                                <span>Dropdown button</span>
+                                <span style="font-family: Arial, Helvetica, sans-serif;">Dropdown button</span>
                                 <span class="icon is-small">
                                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                                 </span>
@@ -145,7 +274,7 @@
 
 
 
-                    <label class="checkbox mt-2">
+                    <label class="checkbox mt-2" style="font-family: Arial, Helvetica, sans-serif;">
                         <input type="checkbox">
                         High contrast
                     </label>
@@ -156,7 +285,7 @@
 
             <div id="ConvertBtn">
                 <button class="button is-rounded" onclick="showtext()">
-                    <span>Convert</span>
+                    <span style="font-family: Arial, Helvetica, sans-serif;">Convert</span>
                     <span class="icon">
                         <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     </span>
@@ -168,7 +297,7 @@
                     <span class="icon">
                         <i class="fa fa-chevron-" aria-hidden="true"></i>
                     </span>
-                    <span style="margin-left: -1px;">reset</span>
+                    <span style="margin-left: -1px; font-family: Arial, Helvetica, sans-serif;">reset</span>
                     <span class="icon">
                         <i class="fa fa-chevron-" aria-hidden="true"></i>
                     </span>
@@ -185,7 +314,7 @@
                     <p class="buttons">
                         <button class="button is-rounded " onclick="showbutton()">
 
-                            <span>Export</span>
+                            <span style="font-family: Arial, Helvetica, sans-serif;">Export</span>
                             <span class="icon">
                                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
                             </span>
@@ -194,7 +323,7 @@
                             <span class="icon">
                                 <i class="fa fa-arrows-alt" aria-hidden="true"></i>
                             </span>
-                            <span>Full Screen</span>
+                            <span style="font-family: Arial, Helvetica, sans-serif;">Full Screen</span>
                         </button>
                     </p>
                 </div>
@@ -204,13 +333,13 @@
                             <span class="icon">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             </span>
-                            <span>Download PDF(multi-page)</span>
+                            <span style="font-family: Arial, Helvetica, sans-serif;">Download PDF(multi-page)</span>
                         </button>
                         <button class="button is-medium" onclick="downloadImage()">
                             <span class="icon">
                                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                             </span>
-                            <span>Download Image</span>
+                            <span style="font-family: Arial, Helvetica, sans-serif;">Download Image</span>
                         </button>
                     </p>
                     <p class="buttons">
