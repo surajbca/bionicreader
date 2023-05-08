@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var text = document.getElementById("outputDiv");
     var showarea = document.getElementById("outputModel");
-    showarea.innerHTML = text.value;
+    showarea.innerHTML = text.innerHTML;
     /*var copyText = document.getElementById("myInput");
     copyText.style.background = "";
     copyText.style.color = "";*/
@@ -59,12 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function updateInput() {
+/*function updateInput() {
   //alert(innerHTML);
 
   document.getElementById("outputDiv").value =
     document.getElementById("outputModel").innerHTML;
-}
+}*/
 /*end model function*/
 
 /*function copyText() {
