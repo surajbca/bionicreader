@@ -6,6 +6,8 @@ function showbutton() {
 /*start download img function*/
 
 function downloadImage() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
   content = document.getElementById("outputDiv");
   content.style.background = "white";
   domtoimage.toBlob(content).then(function (blob) {
@@ -16,6 +18,8 @@ function downloadImage() {
 
 /*start copy img function*/
 function copyText() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
   var copyText = document.getElementById("outputDiv");
   copyText.style.background = "#08BDBA";
   copyText.style.color = "white";
@@ -30,6 +34,8 @@ function copyText() {
 
 /*start pdf function*/
 function generatePDF() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
   const element = document.getElementById("outputDiv");
   document.getElementById("outputDiv").style.display = "block";
   document.getElementById("outputDiv").style.marginTop = "0px";
@@ -45,7 +51,11 @@ function downloadCode() {
   }, 3000);
 }
 /* end pdf function*/
-function generateEpug() {
+
+/*start epub function*/
+function generateEpub() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
   const element = document.getElementById("outputDiv");
   document.getElementById("outputDiv").style.display = "block";
   document.getElementById("outputDiv").style.marginTop = "0px";
@@ -54,6 +64,8 @@ function generateEpug() {
 }
 
 function downloadCode() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
   var x = document.getElementById("outputDiv");
   generateEpug();
   setTimeout(function () {
@@ -64,11 +76,38 @@ function downloadCode() {
 /*start Epub function*/
 
 /*start copy html function*/
-function CopyToClipboard() {
-  var copyinput = document.createElement("div");
-  copyinput.value = document.getElementById("outputDiv").outerHTML;
-  copyinput.select();
-  document.execCommand("Copy");
-  alert("Copied the text: " + copyinput.value);
+function copyHtml() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
+  const copyHtml = document.getElementById("outputDiv");
+
+  navigator.clipboard.writeText(copyHtml.outerHTML);
+  //alert("Copied the text: " + copyHtml.outerHTML);
 }
+
 /*end copy html function*/
+
+/*start markdown function*/
+function markdown() {
+  const inputData = document.getElementById("inputDiv"),
+    outputData = document.getElementById("outputDiv");
+  //alert(inputData.value);
+  outputData.innerHTML = inputData.value
+    //navigator.clipboard.writeText(inputData.value);
+    .split(" ")
+    .map(
+      (w) =>
+        `**<b>${w
+          .split("")
+          .slice(0, Math.ceil(w.length / 2))
+          .join("")}</b>**${w
+          .split("")
+          .slice(Math.ceil(w.length / 2), w.length)
+          .join("")} `
+    )
+    .join(" ");
+  navigator.clipboard.writeText(outputData.innerHTML);
+  // navigator.clipboard.writeText(copyText.value);
+  alert("Copied the text: " + outputData.innerHTML);
+}
+/*end markdown function*/

@@ -44,3 +44,13 @@ body {
         margin-left: -80px;
        
 }
+
+.highlighted:active{
+    background-color: #485fc7;
+    color: aliceblue;
+}
+
+.highlighted:hover{
+    background-color: #485fc7;
+    color: aliceblue;
+}

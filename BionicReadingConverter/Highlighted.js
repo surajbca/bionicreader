@@ -25,7 +25,7 @@ function veryLow() {
   fontId.style.display = "none";
 
   const veryLow = document.getElementById("outputDiv");
-  veryLow.style.fontFamily = "Georgia";
+  veryLow.style.fontFamily = "serif";
 }
 
 function Low() {
@@ -33,7 +33,7 @@ function Low() {
   fontId.style.display = "none";
 
   const Low = document.getElementById("outputDiv");
-  Low.style.fontFamily = "Georgia";
+  Low.style.fontFamily = "system-ui";
 }
 
 function medium() {
@@ -41,7 +41,7 @@ function medium() {
   fontId.style.display = "none";
 
   const medium = document.getElementById("outputDiv");
-  medium.style.fontFamily = "Georgia";
+  medium.style.fontFamily = "sans-serif";
 }
 
 function high() {
@@ -57,5 +57,5 @@ function veryHigh() {
   fontId.style.display = "none";
 
   const veryHigh = document.getElementById("outputDiv");
-  veryHigh.style.fontFamily = "Georgia";
+  veryHigh.style.fontFamily = "system-ui";
 }

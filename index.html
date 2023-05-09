@@ -87,19 +87,19 @@
                         </span>
                     </div>
                     <div class="has-text-centered">
-                        <span class="icon is-large">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <span class="icon is-large" onclick="window.location.href = 'http:www.facebook.com'">
+                            <i class="fa fa-facebook"></i>
                         </span>
-                        <span class="icon is-large">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <span class="icon is-large" onclick="window.location.href = 'http:www.twitter.com'">
+                            <i class="fa fa-twitter"></i>
                         </span>
-                        <span class="icon is-large">
+                        <span class="icon is-large" onclick="window.location.href = 'http:www.linkedin.com'">
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </span>
-                        <span class="icon is-large">
+                        <span class="icon is-large" onclick="window.location.href = 'http:www.gmail.com'">
                             <i class="fa fa-comment" aria-hidden="true"></i>
                         </span>
-                        <span class="icon is-large">
+                        <span class="icon is-large" onclick="window.location.href = 'http:www.google.com'">
                             <i class="fa fa-clone" aria-hidden="true"></i>
                         </span>
                     </div>
@@ -247,7 +247,8 @@
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"
                                 onclick="highlighted()">
-                                <span style="font-family: Arial, Helvetica, sans-serif;">Dropdown button</span>
+                                <span style="font-family: Arial, Helvetica, sans-serif;">fixation(% of
+                                    Highlighted)</span>
                                 <span class="icon is-small">
                                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                                 </span>
@@ -255,20 +256,20 @@
                         </div>
                         <div class="dropdown-menu" role="menu" style="display: none;" id="fontId">
                             <div class="dropdown-content">
-                                <button class="dropdown-item" onclick=" veryLow()">
+                                <button class="dropdown-item highlighted" onclick=" veryLow()">
                                     very Low - 40%
                                 </button>
-                                <button class="dropdown-item" onclick="Low()">
+                                <button class="dropdown-item highlighted" onclick="Low()">
                                     Low - 45%
                                 </button>
-                                <button href="#" class="dropdown-item is-active" onclick=" medium()">
+                                <button href="#" class="dropdown-item highlighted" onclick=" medium()">
                                     Medium - 50%
                                 </button>
-                                <button href="#" class="dropdown-item" onclick="high()">
+                                <button href="#" class="dropdown-item highlighted" onclick="high()">
                                     High - 55%
                                 </button>
                                 <!--<hr class="dropdown-divider">-->
-                                <button href="#" class="dropdown-item" onclick="veryHigh()">
+                                <button href="#" class="dropdown-item highlighted" onclick="veryHigh()">
                                     very High - 60%
                                 </button>
                             </div>
@@ -334,14 +335,14 @@
                     <p class="buttons">
                         <button class="button is-medium" id="btnPrint" onclick="downloadCode();">
                             <span class="icon">
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                <i class="fa fa-file-pdf"></i>
                             </span>
                             <span style="font-family: Arial, Helvetica, sans-serif;">Download PDF(multi-page)</span>
                         </button>
 
-                        <button class="button is-medium" onclick="generateEpug()">
+                        <button class="button is-medium" onclick="generateEpub()">
                             <span class="icon">
-                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                <i class="fa fa-film" aria-hidden="true"></i>
                             </span>
                             <span style="font-family: Arial, Helvetica, sans-serif;">Download Epub</span>
                         </button>
@@ -351,14 +352,14 @@
                     <p class="buttons">
                         <button class="button is-medium" onclick="downloadImage()">
                             <span class="icon">
-                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                <i class="fa fa-file-image"></i>
                             </span>
                             <span style="font-family: Arial, Helvetica, sans-serif;">Download Image</span>
                         </button>
 
                         <button class="button is-medium" onclick="copyText()">
                             <span class="icon">
-                                <i class="fa fa-files-o" aria-hidden="true"></i>
+                                <i class="fa fa-clone" aria-hidden="true"></i>
                             </span>
                             <span>Copy Image to Clipbord</span>
                         </button>
@@ -366,16 +367,17 @@
 
                     <p class="buttons">
 
-                        <button class="button is-medium" onclick="CopyToClipboard()">
+                        <button class="button is-medium" onclick="copyHtml()">
                             <span class="icon">
                                 <i class="fa fa-code" aria-hidden="true"></i>
                             </span>
                             <span>Copy Html</span>
                         </button>
 
-                        <button class="button is-medium">
+                        <button class="button is-medium" onclick="markdown()">
                             <span class="icon">
-                                <i class="fa fa-code" aria-hidden="true"></i>
+                                <i class="fa fa-clone" aria-hidden="true"></i>
+
                             </span>
                             <span>Copy Markdown</span>
                         </button>

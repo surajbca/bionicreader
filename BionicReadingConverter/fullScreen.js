@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     var text = document.getElementById("outputDiv");
     var showarea = document.getElementById("outputModel");
     showarea.innerHTML = text.innerHTML;
+
+    const buttonDiv = document.getElementById("showbutton");
+    buttonDiv.style.display = "none";
     /*var copyText = document.getElementById("myInput");
     copyText.style.background = "";
     copyText.style.color = "";*/
