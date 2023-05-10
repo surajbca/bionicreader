@@ -118,13 +118,14 @@ function markdown() {
 }
 /*end markdown function*/
 
-function updateInput() {
+function updateInput(text) {
   document.getElementById("outputDiv").innerHTML =
     document.getElementById("inputDiv").value;
   const inputData = document.getElementById("inputDiv"),
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
   outputData.innerHTML = inputData.value
+
     .replaceAll("\n", "<br/>")
     .replaceAll("\t", "  ")
     .split(" ")
@@ -140,9 +141,4 @@ function updateInput() {
           .join("")} `
     )
     .join(" ");
-  //const inputData = document.getElementById("inputDiv"),
-  //outputData = document.getElementById("outputDiv");
-  //var x = document.getElementById("fname");
-  //outputData.innerHTML = inputData.value;
-  //x.value = x.value.toUpperCase();
 }

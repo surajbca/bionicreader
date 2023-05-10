@@ -5,13 +5,13 @@ function showtext() {
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
   outputData.innerHTML = inputData.value
-
     .replaceAll("\n", "<br/>")
     .replaceAll("\t", "  ")
     .split(" ")
     .map(
       (w) =>
         `<b>${w
+
           .split("")
           .slice(0, Math.ceil(w.length / 2))
           .join("")}</b>${w
