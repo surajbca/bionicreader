@@ -89,6 +89,9 @@ function copyHtml() {
 
 /*start markdown function*/
 function markdown() {
+  const buttonDiv = document.getElementById("showbutton");
+  buttonDiv.style.display = "none";
+
   const inputData = document.getElementById("inputDiv"),
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
