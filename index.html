@@ -240,7 +240,8 @@
             <div class="column">
 
                 <div class="control">
-                    <textarea class="textarea is-focused" placeholder="input" id="inputDiv"></textarea>
+                    <textarea class="textarea is-focused" placeholder="input" id="inputDiv"
+                        oninput="updateInput(value)"></textarea>
                 </div>
                 <div id="dropdownBtn">
                     <div class="dropdown is-active">
@@ -312,7 +313,7 @@
             <div class="column">
                 <div class="control outputDiv">
 
-                    <div class="" id="outputDiv"></div>
+                    <div class=" " id="outputDiv"></div>
                 </div>
                 <div class="navbar-end" id="ExportBtnDiv">
                     <p class="buttons">

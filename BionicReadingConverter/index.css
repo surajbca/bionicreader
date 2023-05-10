@@ -22,12 +22,18 @@ body {
 
 #inputDiv{
     height: 25em;
+    overflow: scroll;
 }
 
 .outputDiv{
+    padding-left: 10px;
+    padding-right: 10px;
     height: 25em;
-    border: solid #a8b4e9;
-    border-radius:  5px;
+     border: solid #a8b4e9; 
+     border-radius:  5px; 
+overflow: scroll;
+    /* scrollbar-color: red orange; */
+    /*scrollbar-width: thin;*/
 }
 #ConvertBtn{
     margin-top: 8em;

@@ -117,3 +117,32 @@ function markdown() {
   //alert("Copied the text: " + markdown);
 }
 /*end markdown function*/
+
+function updateInput() {
+  document.getElementById("outputDiv").innerHTML =
+    document.getElementById("inputDiv").value;
+  const inputData = document.getElementById("inputDiv"),
+    outputData = document.getElementById("outputDiv");
+  //alert(inputData.value);
+  outputData.innerHTML = inputData.value
+    .replaceAll("\n", "<br/>")
+    .replaceAll("\t", "  ")
+    .split(" ")
+    .map(
+      (w) =>
+        `<b>${w
+
+          .split("")
+          .slice(0, Math.ceil(w.length / 2))
+          .join("")}</b>${w
+          .split("")
+          .slice(Math.ceil(w.length / 2), w.length)
+          .join("")} `
+    )
+    .join(" ");
+  //const inputData = document.getElementById("inputDiv"),
+  //outputData = document.getElementById("outputDiv");
+  //var x = document.getElementById("fname");
+  //outputData.innerHTML = inputData.value;
+  //x.value = x.value.toUpperCase();
+}

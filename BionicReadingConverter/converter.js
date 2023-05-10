@@ -5,6 +5,9 @@ function showtext() {
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
   outputData.innerHTML = inputData.value
+
+    .replaceAll("\n", "<br/>")
+    .replaceAll("\t", "  ")
     .split(" ")
     .map(
       (w) =>
