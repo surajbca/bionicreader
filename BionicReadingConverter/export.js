@@ -92,22 +92,25 @@ function markdown() {
   const inputData = document.getElementById("inputDiv"),
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
-  outputData.innerHTML = inputData.value
+  let startData = inputData.value
     //navigator.clipboard.writeText(inputData.value);
     .split(" ")
     .map(
       (w) =>
-        `**<b>${w
+        `**${w
           .split("")
           .slice(0, Math.ceil(w.length / 2))
-          .join("")}</b>**${w
+          .join("")}**${w
           .split("")
           .slice(Math.ceil(w.length / 2), w.length)
           .join("")} `
     )
     .join(" ");
-  navigator.clipboard.writeText(outputData.innerHTML);
+  navigator.clipboard.writeText(
+    startData.replace("<b>", "").replace("</b>", "")
+  );
   // navigator.clipboard.writeText(copyText.value);
-  alert("Copied the text: " + outputData.innerHTML);
+  let markdown = startData.toString().replace("<b>", "").replace("</b>", "");
+  //alert("Copied the text: " + markdown);
 }
 /*end markdown function*/
