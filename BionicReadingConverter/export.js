@@ -126,8 +126,6 @@ function updateInput(text) {
   //alert(inputData.value);
   outputData.innerHTML = inputData.value
 
-    .replaceAll("\n", "<br/>")
-    .replaceAll("\t", "  ")
     .split(" ")
     .map(
       (w) =>
@@ -140,5 +138,6 @@ function updateInput(text) {
           .slice(Math.ceil(w.length / 2), w.length)
           .join("")} `
     )
-    .join(" ");
+    .join(" ")
+    .replaceAll("\n", "<br/>");
 }
