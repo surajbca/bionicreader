@@ -18,19 +18,23 @@ function downloadImage() {
 /*end download img function*/
 
 /*start copy img function*/
-function copyText() {
+
+function copyOutputValue() {
   const buttonDiv = document.getElementById("showbutton");
   buttonDiv.style.display = "none";
-  var copyText = document.getElementById("outputDiv");
-  copyText.style.background = "#08BDBA";
-  copyText.style.color = "white";
+  const copyValue = document.getElementById("outputDiv");
+  copyValue.style.background = "#08BDBA";
+  copyValue.style.color = "white";
 
-  /* copyText.select();
-  copyText.setSelectionRange(0, 99999);*/ // For mobile devices
+  copyValue.select();
+  // copyValue.setSelectionRange(0, 99999); // For mobile devices
 
   // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
+  navigator.clipboard.writeText(copyValue.innerText);
+
+  //alert("Copied the text: " + copyValue.innerText);
 }
+
 /*end copy img function*/
 
 /*start pdf function*/
