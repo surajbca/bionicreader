@@ -10,6 +10,7 @@ function downloadImage() {
   buttonDiv.style.display = "none";
   content = document.getElementById("outputDiv");
   content.style.background = "white";
+  content.style.padding = "10px";
   domtoimage.toBlob(content).then(function (blob) {
     window.saveAs(blob, "my-node.png");
   });
@@ -60,20 +61,20 @@ function generateEpub() {
   document.getElementById("outputDiv").style.display = "block";
   document.getElementById("outputDiv").style.marginTop = "0px";
   document.getElementById("outputDiv").style.border = "1px solid black";
-  html2pdf().from(element).save("download.Epug");
+  html2pdf().from(element).save("download.epub");
 }
 
-function downloadCode() {
+function downloadEpub() {
   const buttonDiv = document.getElementById("showbutton");
   buttonDiv.style.display = "none";
   var x = document.getElementById("outputDiv");
-  generateEpug();
+  generateEpub();
   setTimeout(function () {
     window.location = window.location;
   }, 3000);
 }
 
-/*start Epub function*/
+/*end Epub function*/
 
 /*start copy html function*/
 function copyHtml() {
