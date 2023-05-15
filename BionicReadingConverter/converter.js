@@ -5,7 +5,7 @@ function showtext() {
     outputData = document.getElementById("outputDiv");
   //alert(inputData.value);
   outputData.innerHTML = inputData.value
-    .replaceAll("/\n", "<br/>")
+    // .replaceAll("/\n", "<br/>")
     //.replaceAll("/\r", "  ") ///\r|\n/
     .split(" ")
     .map(
@@ -19,5 +19,6 @@ function showtext() {
           .slice(Math.ceil(w.length / 2), w.length)
           .join("")} `
     )
-    .join(" ");
+    .join(" ")
+    .replaceAll("\n", "<br/>");
 }
