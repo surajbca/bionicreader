@@ -26,7 +26,7 @@ function copyOutputValue() {
   copyValue.style.background = "#08BDBA";
   copyValue.style.color = "white";
 
-  copyValue.select();
+  //copyValue.select();
   // copyValue.setSelectionRange(0, 99999); // For mobile devices
 
   // Copy the text inside the text field
@@ -41,19 +41,25 @@ function copyOutputValue() {
 function generatePDF() {
   const buttonDiv = document.getElementById("showbutton");
   buttonDiv.style.display = "none";
-  const element = document.getElementById("outputDiv");
-  document.getElementById("outputDiv").style.display = "block";
-  document.getElementById("outputDiv").style.marginTop = "0px";
-  document.getElementById("outputDiv").style.border = "1px solid black";
-  html2pdf().from(element).save("download.pdf");
+  //const element = document.getElementById("outputDiv");
+  const elements = document.getElementById("outputDiv");
+  var opt = {
+    margin: 1,
+    filename: "Download.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+  };
+  // Choose the element that our invoice is rendered in.
+  html2pdf().set(opt).from(elements).save();
 }
 
 function downloadCode() {
   var x = document.getElementById("outputDiv");
   generatePDF();
-  setTimeout(function () {
+  /* setTimeout(function () {
     window.location = window.location;
-  }, 3000);
+  }, 3000);*/
 }
 /* end pdf function*/
 
@@ -64,7 +70,7 @@ function generateEpub() {
   const element = document.getElementById("outputDiv");
   document.getElementById("outputDiv").style.display = "block";
   document.getElementById("outputDiv").style.marginTop = "0px";
-  document.getElementById("outputDiv").style.border = "1px solid black";
+  /*document.getElementById("outputDiv").style.border = "1px solid black";*/
   html2pdf().from(element).save("download.epub");
 }
 
